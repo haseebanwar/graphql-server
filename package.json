@@ -1,0 +1,25 @@
+{
+  "name": "graphql-server",
+  "version": "1.0.0",
+  "description": "Architecting GraphQL API with NodeJS and Express",
+  "main": "app.js",
+  "scripts": {
+    "start": "node server",
+    "server": "nodemon server"
+  },
+  "author": "Haseeb Anwar",
+  "license": "ISC",
+  "dependencies": {
+    "@graphql-tools/graphql-file-loader": "^7.1.0",
+    "@graphql-tools/load": "^7.3.0",
+    "@graphql-tools/schema": "^8.2.0",
+    "apollo-server": "^3.3.0",
+    "axios": "^0.21.4",
+    "express": "^4.17.1",
+    "express-graphql": "^0.12.0",
+    "graphql": "^15.5.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}

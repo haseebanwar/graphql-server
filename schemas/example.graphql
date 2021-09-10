@@ -1,0 +1,30 @@
+# query for getting a single book
+{
+  book(id: 1) {
+    id
+    name
+    author {
+      id
+      name
+    }
+  }
+}
+
+
+
+# mutation for creating a book
+mutation createBook($name: String!, $authorId: Int!) {
+  addBook(newBook: {name: $name, authorId: $authorId}) {
+    id
+    name
+    author {
+      name
+    }
+  }
+}
+
+# varialbe in JSON for above mutation
+{
+  "name": "test",
+  "authroId": 2
+}
