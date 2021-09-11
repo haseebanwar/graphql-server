@@ -5,8 +5,6 @@ const { loadSchemaSync } = require('@graphql-tools/load');
 const { GraphQLFileLoader } = require('@graphql-tools/graphql-file-loader');
 const graphqlResolver = require('./resolvers');
 
-const axios = require('axios');
-
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -17,21 +15,16 @@ const schema = makeExecutableSchema({
   resolvers: graphqlResolver,
 });
 
-axios.get('https://jsonplaceholder.typicode.com/users').then(({ data }) => {
-  const a = data.map(({ id, name, email, phone, website }, idx) => {
-    if (idx <= 4) {
-      return {
-        id,
-        name,
-        email,
-        phone,
-        website,
-      };
-    }
-    return null;
-  });
+app.use((req, res, next) => {
+  const token = req.header('Authorization');
 
-  console.log(`a`, a);
+  // verify token
+
+  // bind user to req
+
+  // add property to req object
+  req.isAuthenticated = token;
+  next();
 });
 
 app.use(
