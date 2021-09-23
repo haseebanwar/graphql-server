@@ -17,7 +17,7 @@ const schema = makeExecutableSchema({
 
 server.use((req, res, next) => {
   // extract token from req headers
-  const token = req.header('Authorization');
+  const token = req.header('Authorization') || 'fake';
 
   // TODO: verify token
 
