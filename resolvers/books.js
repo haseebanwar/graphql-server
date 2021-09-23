@@ -1,4 +1,6 @@
+const { composeResolvers } = require('@graphql-tools/resolvers-composition');
 const { authors, books } = require('../data');
+const { authenticateReq } = require('../utils/auth');
 
 const booksResolvers = {
   Query: {
@@ -21,4 +23,6 @@ const booksResolvers = {
   },
 };
 
-module.exports = booksResolvers;
+module.exports = composeResolvers(booksResolvers, {
+  '*.*': [authenticateReq],
+});

@@ -12,6 +12,7 @@
   "dependencies": {
     "@graphql-tools/graphql-file-loader": "^7.1.0",
     "@graphql-tools/load": "^7.3.2",
+    "@graphql-tools/resolvers-composition": "^6.4.0",
     "@graphql-tools/schema": "^8.2.0",
     "express": "^4.17.1",
     "express-graphql": "^0.12.0",

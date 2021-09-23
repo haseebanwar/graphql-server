@@ -15,6 +15,24 @@ const schema = makeExecutableSchema({
   resolvers: graphqlResolver,
 });
 
+server.use((req, res, next) => {
+  // extract token from req headers
+  const token = req.header('Authorization');
+
+  // TODO: verify token
+
+  // TODO: bind user to req
+
+  // we can later access isAuthenticated property
+  // in resolver functions to check
+  // if the user is authenticated
+  req.isAuthenticated = Boolean(token);
+
+  // call the next middleware
+  // whether the user is authenticated or not
+  next();
+});
+
 server.use(
   '/graphql',
   graphqlHTTP({
